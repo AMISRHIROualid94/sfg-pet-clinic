@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-08-10T23:41:58 WEST" name="Surefire suite" finished-at="2022-08-10T23:41:58 WEST" duration-ms="68">
+    <groups>
+    </groups>
+    <test started-at="2022-08-10T23:41:58 WEST" name="Surefire test" finished-at="2022-08-10T23:41:58 WEST" duration-ms="68">
+      <class name="guru.springframework.sfgpetclinic.SfgPetClinicApplicationTests">
+        <test-method signature="contextLoads()[pri:0, instance:guru.springframework.sfgpetclinic.SfgPetClinicApplicationTests@21de60b4]" started-at="2022-08-10T23:41:58 WEST" name="contextLoads" finished-at="2022-08-10T23:41:58 WEST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- contextLoads -->
+      </class> <!-- guru.springframework.sfgpetclinic.SfgPetClinicApplicationTests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
