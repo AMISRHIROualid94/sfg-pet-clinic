@@ -59,8 +59,8 @@
 		</plugins>
 	</build>
 	<scm>
-		<developerConnection>scm:git:[fetch=]https://github.com/AMISRHIROualid94/sfg-pet-clinic.git</developerConnection>
-		<tag>sfg-pet-clinic-0.0.2</tag>
+		<developerConnection>scm:git:https://github.com/AMISRHIROualid94/sfg-pet-clinic.git</developerConnection>
+		<tag>sfg-pet-clinic-0.0.1</tag>
 	</scm>
 
 </project>
