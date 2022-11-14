@@ -6,6 +6,9 @@ html {
 body {
   margin: 0;
 }
+.h2-welcome{
+  text-align: center;
+}
 article,
 aside,
 details,
@@ -1106,6 +1109,7 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
 }
 .img-rounded {
   border-radius: 0;
