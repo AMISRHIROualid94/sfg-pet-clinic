@@ -1,32 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>List of Vets</title>
-    <style>
-        table{
-            border-spacing : 2px;
-        }
-        td{
-          padding : 10px 15px;
-        }
-        table thead td{
-             background-color : orange;
-        }
-
-        table tbody td{
-        background-color : grey;
-        }
-    </style>
 </head>
 <body>
-    <h1 th:text="'List of Vets'">List of Vets....</h1>
+<!--/*@thymesVar id="vet" type="guru.springframework.sfgpetclinic.model.Vet"*/-->
+<h2>Veterinarians</h2>
 
-    <table>
+<table id="vets" class="table table-striped">
         <thead>
-        <td>Id</td>
-        <td>First Name</td>
-        <td>Last Name</td>
+        <tr>
+            <th style="width: 150px;">Id</th>
+            <th style="width: 150px;">First Name</th>
+            <th style="width: 150px;">Last Name</th>
+        </tr>
         </thead>
         <tbody>
         <tr th:each="vet : ${vets}">
