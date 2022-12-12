@@ -6,9 +6,6 @@ html {
 body {
   margin: 0;
 }
-.h2-welcome{
-  text-align: center;
-}
 article,
 aside,
 details,
@@ -1109,7 +1106,6 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
 }
 .img-rounded {
   border-radius: 0;
@@ -6771,13 +6767,13 @@ strong {
 .navbar {
   border-top: 4px solid #6db33f;
   background-color: #34302d;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border-bottom: 0;
   border-left: 0;
   border-right: 0;
 }
 .navbar a.navbar-brand {
-  background: url("../images/spring-logo-dataflow.png") -1px -1px no-repeat;
+  background: url("../resources/static/resources/images/spring-logo-dataflow.png") -1px -1px no-repeat;
   margin: 12px 0 6px;
   width: 229px;
   height: 46px;
@@ -6789,7 +6785,7 @@ strong {
   display: block;
   width: 229px;
   height: 46px;
-  background: url("../images/spring-logo-dataflow.png") -1px -48px no-repeat;
+  background: url("../resources/static/resources/images/spring-logo-dataflow.png") -1px -48px no-repeat;
   opacity: 0;
   -moz-transition: opacity 0.12s ease-in-out;
   -webkit-transition: opacity 0.12s ease-in-out;
