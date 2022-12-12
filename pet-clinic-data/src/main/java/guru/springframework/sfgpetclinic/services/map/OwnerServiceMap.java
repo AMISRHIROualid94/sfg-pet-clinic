@@ -13,18 +13,6 @@ import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
 
-    @Autowired
-    private final PetTypeService petTypeService;
-
-    @Autowired
-    private final PetService petService;
-
-    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
-        this.petTypeService = petTypeService;
-        this.petService = petService;
-    }
-
-
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
