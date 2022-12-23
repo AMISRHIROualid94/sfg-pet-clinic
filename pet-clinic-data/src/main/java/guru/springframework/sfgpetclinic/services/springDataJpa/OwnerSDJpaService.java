@@ -34,24 +34,24 @@ public class OwnerSDJpaService implements OwnerService {
     }
 
     @Override
-    public Owner findById(Long aLong) {
-        Optional<Owner> optionalOwner =  ownerRepository.findById(aLong);
+    public Owner findById(Long id) {
+        Optional<Owner> optionalOwner =  ownerRepository.findById(id);
         return optionalOwner.orElse(null);
     }
 
     @Override
-    public Owner save(Owner object) {
-        return ownerRepository.save(object);
+    public Owner save(Owner owner) {
+        return ownerRepository.save(owner);
     }
 
     @Override
-    public void delete(Owner object) {
-        ownerRepository.delete(object);
+    public void delete(Owner owner) {
+        ownerRepository.delete(owner);
     }
 
     @Override
-    public void deleteById(Long aLong) {
-    ownerRepository.deleteById(aLong);
+    public void deleteById(Long id) {
+    ownerRepository.deleteById(id);
     }
 
     @Override
