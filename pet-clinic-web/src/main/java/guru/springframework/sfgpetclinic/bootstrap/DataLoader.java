@@ -1,11 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.*;
-import guru.springframework.sfgpetclinic.repositories.OwnerRepository;
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialityService;
-import guru.springframework.sfgpetclinic.services.VetService;
+import guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,16 +13,17 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final PetService petService;
     private final SpecialityService specialitiesService;
+    private final VisitService visitService;
 
-    private final OwnerRepository ownerRepository;
-
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialitiesService, OwnerRepository ownerRepository) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, PetService petService, SpecialityService specialitiesService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.petService = petService;
         this.specialitiesService = specialitiesService;
-        this.ownerRepository = ownerRepository;
+        this.visitService = visitService;
     }
 
 
@@ -62,29 +59,22 @@ public class DataLoader implements CommandLineRunner {
         owner1.setAddress("Owner Adresse 1");
         owner1.setCity("Owner City 1");
         owner1.setTelephone("06000000000");
-        ownerService.save(owner1);
-        /*
-        owner1.getPets().forEach(pet -> {
-            System.out.println("owner1 pets :" + pet.getName());
-        });
-         */
-        Owner owner2 = new Owner();
-        owner2.setFirstName("OwnerFN2");
-        owner2.setLastName("OwnerLN2");
-        owner2.setAddress("Owner Adresse 2");
-        owner2.setCity("Owner City 2");
-        owner2.setTelephone("07000000000");
 
-        System.out.println("Loaded Owners ...");
-        /* Owners end */
-
-        /* Pets start */
         Pet owner1Pet = new Pet();
         owner1Pet.setPetType(saveDogPetType);
         owner1Pet.setOwner(owner1);
         owner1Pet.setBirthDate(LocalDate.now());
         owner1Pet.setName("dodo");
         owner1.getPets().add(owner1Pet);
+
+        ownerService.save(owner1);
+
+        Owner owner2 = new Owner();
+        owner2.setFirstName("OwnerFN2");
+        owner2.setLastName("OwnerLN2");
+        owner2.setAddress("Owner Adresse 2");
+        owner2.setCity("Owner City 2");
+        owner2.setTelephone("07000000000");
 
         Pet owner2Pet = new Pet();
         owner2Pet.setPetType(saveCatPetType);
@@ -93,15 +83,20 @@ public class DataLoader implements CommandLineRunner {
         owner2Pet.setName("coco");
         owner2.getPets().add(owner2Pet);
 
-        /* Pet  owner1Pet2 = new Pet();
-        owner1Pet2.setPetType(saveCatPetType);
-        owner1Pet2.setOwner(owner1);
-        owner1Pet2.setBirthDate(LocalDate.now());
-        owner1Pet2.setName("sisi");
-        owner1.getPets().add(owner1Pet2);
-        */
         ownerService.save(owner2);
-        /* Pets end */
+
+        System.out.println("Loaded Owners ...");
+        /* Owners end */
+
+        /* Visit Start */
+
+        Visit visit1 = new Visit();
+        visit1.setPet(owner1Pet);
+        visit1.setDate(LocalDate.now());
+        visit1.setDescription("Visit 1 Description");
+        visitService.save(visit1);
+
+        /* Visit End */
 
         /* Specialities start */
         Speciality speciality1 = new Speciality();
@@ -112,13 +107,6 @@ public class DataLoader implements CommandLineRunner {
         speciality2.setDescription("Speciality2");
         Speciality savedSpec2 = specialitiesService.save(speciality2);
 
-        Speciality speciality3 = new Speciality();
-        speciality3.setDescription("Speciality3");
-        Speciality savedSpec3 = specialitiesService.save(speciality3);
-
-        /*specialitiesService.findAll().forEach(speciality -> {
-           System.out.println(speciality.getDescription());
-        });*/
         /* Specialities end */
 
         /* Vets start */
@@ -133,7 +121,6 @@ public class DataLoader implements CommandLineRunner {
         vet2.setFirstName("VetFN2");
         vet2.setLastName("vetLN2");
         vet2.getSpecialities().add(savedSpec2);
-        vet2.getSpecialities().add(speciality3);
         vetService.save(vet2);
 
         /*System.out.println("vets specialities: ");
