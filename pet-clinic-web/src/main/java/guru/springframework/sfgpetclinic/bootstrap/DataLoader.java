@@ -38,6 +38,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
+
         /* Pet Types start*/
         PetType dog = new PetType();
         dog.setName("Dog");
@@ -59,6 +60,7 @@ public class DataLoader implements CommandLineRunner {
         owner1.setAddress("Owner Adresse 1");
         owner1.setCity("Owner City 1");
         owner1.setTelephone("06000000000");
+
 
         Pet owner1Pet = new Pet();
         owner1Pet.setPetType(saveDogPetType);
